@@ -1,0 +1,96 @@
+/* ===== SOAL 03: CSS EKSTERNAL ===== */
+
+/* 1. Warna dan font (disimpan di variabel supaya konsisten) */
+:root {
+  --utama: #0b4a94;   /* biru */
+  --aksen: #f7b733;   /* kuning */
+}
+body {
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* 2. Selector: element, class, dan gabungan */
+h2 { color: var(--utama); }
+[data-bs-theme="dark"] h2,
+[data-bs-theme="dark"] .logo { color: #fff; }
+[data-bs-theme="dark"] .navbar-toggler-icon { filter: invert(1); }
+
+.logo { font-size: 1.6rem; color: var(--utama); }
+
+/* Bar biru paling atas */
+.topbar {
+  background-color: var(--utama);
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 8px 0;
+  text-align: right;
+}
+
+/* Hero: latar biru dengan sedikit cahaya */
+.hero {
+  background: radial-gradient(circle at 80% 20%, #2c7fd1, transparent 50%), #0a3a75;
+  color: #fff;
+  padding: 40px 0;
+}
+.hero-besar { padding: 70px 0 110px; }   /* ruang bawah untuk kotak statistik */
+.hero h1 { color: #fff; font-size: 2.6rem; max-width: 720px; }
+.hero .lead { max-width: 640px; }
+
+.lencana {
+  background-color: var(--aksen);
+  color: var(--utama);
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-right: 8px;
+}
+
+.btn-aksen { background-color: var(--aksen); color: var(--utama); font-weight: 600; border: none; }
+.btn-aksen:hover { background-color: #e5a31f; color: var(--utama); }
+.btn-garis { color: #fff; border: 1px solid #fff; }
+.btn-garis:hover { background-color: #fff; color: var(--utama); }
+
+/* 3. Box model: padding, margin, border */
+.statbar {
+  position: relative;
+  margin-top: -60px;              /* naik menimpa hero */
+  padding: 24px;
+  background-color: var(--bs-body-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+.kotak {
+  padding: 24px;
+  margin-bottom: 16px;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 12px;
+}
+.card-img-top {
+  height: 160px;
+  padding: 16px;
+  object-fit: contain;
+  background-color: var(--bs-tertiary-bg);
+}
+
+/* 4. Flexbox buatan sendiri */
+.alur { display: flex; gap: 16px; }       /* 3 langkah sejajar */
+.langkah { flex: 1; }
+
+.footer-flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 20px 16px;
+  background-color: var(--utama);
+  color: #fff;
+}
+
+/* 5. Media query: layar kecil (ponsel 375px) */
+@media (max-width: 768px) {
+  .topbar { text-align: left; font-size: 0.75rem; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero-besar { padding: 40px 0 90px; }
+  .alur { flex-direction: column; }        /* langkah jadi bertumpuk */
+  .footer-flex { flex-direction: column; text-align: center; }
+}
